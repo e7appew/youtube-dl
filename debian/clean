@@ -1,2 +1,2 @@
-debian/youtube-dl.1
-youtube_dl/*.pyc
+build/
+youtube_dl.egg-info/
