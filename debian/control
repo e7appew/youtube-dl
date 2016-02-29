@@ -5,7 +5,8 @@ Maintainer: Rogério Brito <rbrito@ime.usp.br>
 Build-Depends:
  debhelper (>= 9),
  dh-python,
- python-pkg-resources
+ python-pkg-resources,
+ bash-completion
 Build-Depends-Indep:
  python
 X-Python-Version: >= 2.6
