@@ -1,1 +1,2 @@
 skip-support-file-installation.patch
+fix-libav-compat-outdated.patch
