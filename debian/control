@@ -6,10 +6,13 @@ Build-Depends:
  debhelper (>= 9),
  dh-python,
  python-pkg-resources,
+ python3-pkg-resources,
  bash-completion
 Build-Depends-Indep:
- python
+ python,
+ python3
 X-Python-Version: >= 2.6
+X-Python3-Version: >= 3.2
 Standards-Version: 3.9.7
 Homepage: https://rg3.github.com/youtube-dl/
 Vcs-Git: https://anonscm.debian.org/git/collab-maint/youtube-dl.git
@@ -18,14 +21,10 @@ Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/youtube-dl.git
 Package: youtube-dl
 Architecture: all
 Depends:
- python-pkg-resources,
+ python3-pkg-resources,
  ${misc:Depends},
- ${python:Depends}
-Recommends:
- aria2 | wget | curl,
- ffmpeg | libav-tools,
- mpv | mplayer | mplayer2,
- rtmpdump
+ ${python3:Depends},
+ python3-youtube-dl (= ${source:Version})
 Description: downloader of videos from YouTube and other sites
  youtube-dl is a small command-line program to download videos from
  YouTube.com and other sites that don't provide direct links to the
@@ -169,3 +168,54 @@ Description: downloader of videos from YouTube and other sites
  youtube:subscriptions, youtube:truncated_id, youtube:truncated_url,
  youtube:user, youtube:watchlater, Zapiks, ZDF, ZDFChannel, zingmp3:album,
  zingmp3:song, ZippCast
+
+Package: python-youtube-dl
+Architecture: all
+Section: python
+Depends:
+ ${misc:Depends},
+ ${python:Depends}
+Recommends:
+ aria2 | wget | curl,
+ ffmpeg | libav-tools,
+ mpv | mplayer | mplayer2,
+ rtmpdump
+Description: Python 2 modules for youtube-dl
+ This package provides the Python 2 modules which may optionally be used
+ by the youtube-dl command-line program, a program which downloads videos
+ from YouTube.com and other sites that don't provide direct links to the
+ videos served.
+ .
+ It can easily be incorporated in other Python programs thus:
+ .
+     from __future__ import unicode_literals
+     import youtube_dl
+ .
+     ydl_opts = {}
+     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+         ydl.download(['http://www.youtube.com/watch?v=BaW_jenozKc'])
+
+Package: python3-youtube-dl
+Architecture: all
+Section: python
+Depends:
+ ${misc:Depends},
+ ${python3:Depends}
+Recommends:
+ aria2 | wget | curl,
+ ffmpeg | libav-tools,
+ mpv | mplayer | mplayer2,
+ rtmpdump
+Description: Python 3 modules for youtube-dl
+ This package provides the Python 3 modules required by the youtube-dl
+ command-line program, a program which downloads videos from YouTube.com
+ and other sites that don't provide direct links to the videos served.
+ .
+ It can easily be incorporated in other Python programs thus:
+ .
+     from __future__ import unicode_literals
+     import youtube_dl
+ .
+     ydl_opts = {}
+     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+         ydl.download(['http://www.youtube.com/watch?v=BaW_jenozKc'])

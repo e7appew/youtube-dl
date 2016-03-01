@@ -1,0 +1,9 @@
+#!/bin/sh
+case "$1" in
+    -d|--default|-h|--help)
+        /usr/bin/py3versions "$@"
+        ;;
+    *)
+        echo $(/usr/bin/py3versions "$@"; /usr/bin/pyversions "$@")
+        ;;
+esac

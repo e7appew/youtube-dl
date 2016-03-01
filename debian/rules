@@ -1,7 +1,16 @@
 #!/usr/bin/make -f
+
+export PATH := $(CURDIR)/debian/utils:$(PATH)
+export pyversions := $(CURDIR)/debian/utils/pyversions
+export python := $(CURDIR)/debian/utils/python
+
 %:
-	dh $@ --with python2 --buildsystem=python_distutils
+	dh $@ --with python2,python3 --buildsystem=python_distutils
 
 override_dh_auto_install:
 	dh_auto_install
 	dh_bash-completion
+
+override_dh_installdocs:
+	dh_installdocs -p youtube-dl -p python3-youtube-dl --link-doc=python3-youtube-dl
+	dh_installdocs --remaining-packages
