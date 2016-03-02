@@ -7,7 +7,8 @@ Build-Depends:
  dh-python,
  python-pkg-resources,
  python3-pkg-resources,
- bash-completion
+ bash-completion,
+ dh-exec
 Build-Depends-Indep:
  python,
  python3

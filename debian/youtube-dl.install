@@ -1,2 +1,4 @@
+#!/usr/bin/dh-exec
 usr/bin
-youtube-dl.fish etc/fish/completions
+youtube-dl.fish /usr/share/fish/completions
+youtube-dl.zsh => /usr/share/zsh/vendor-completions/_youtube-dl
