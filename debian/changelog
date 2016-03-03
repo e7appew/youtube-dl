@@ -1,3 +1,16 @@
+youtube-dl (2016.02.22-1.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Install support files via debhelper instead of setup.py.
+  * Simplify cleanup by dropping override rule.
+  * Repackage python modules as separate packages. (Closes: #723990)
+  * Stop libav compatibility links from being considered as genuine.
+    (Closes: #798936)
+  * Add support for zsh completion and move fish completion to /usr/share.
+    (Closes: #816412)
+
+ -- Carlos Maddela <e7appew@gmail.com>  Fri, 04 Mar 2016 03:46:59 +1100
+
 youtube-dl (2016.02.22-1) unstable; urgency=medium
 
   * ACK NMU. Thanks Wookey! (Closes: #809454)
